@@ -5,6 +5,8 @@ import os
 
 jogo = 's'
 
+os.system('cls') or None
+
 input('Aperte enter para começar... ')
 
 while jogo == 's':
@@ -14,7 +16,13 @@ while jogo == 's':
     print(numero_sorteado)
 
     while True:
-        numero_chutado = int(input('Chute um número de 1 a 100: '))
+
+        try:
+            numero_chutado = int(input('Chute um número de 1 a 100: '))
+            
+        except ValueError:
+            print('Digite apenas números')
+            numero_chutado = int(input('Chute um número de 1 a 100: '))
 
         if numero_sorteado == numero_chutado:
             print('PARABÉNS! VOCÊ CHUTOU O VALOR CERTO: ' + str(numero_sorteado))
@@ -27,8 +35,7 @@ while jogo == 's':
 
         else:
             print('Chute um número maior')
-
-        
+    
 
 print(50*'-')
 print('Encerrando o jogo...')
